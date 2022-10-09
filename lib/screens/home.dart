@@ -93,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   margin: const EdgeInsets.all(8.0),
                   child: ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                     child: Image.asset(url, fit: BoxFit.cover, width: 1000.0),
                   ),
                 ),
