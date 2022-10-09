@@ -1,0 +1,8 @@
+Buttons radius Border : 20
+Buttons height :
+Buttons width :
+Buttons primary color :
+Buttons secondary color :
+Button shadow : 
+Main color : 
+Second color : 
