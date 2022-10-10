@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_p/screens/login.dart';
 import 'package:getwidget/getwidget.dart';
 
 class Sidebar extends StatelessWidget {
@@ -67,11 +68,14 @@ class Sidebar extends StatelessWidget {
                 color: Colors.grey[300],
                 borderRadius: BorderRadius.circular(25),
               ),
-              child: const ListTile(
-                title: Text('Logout'),
-                onTap: null,
-                leading: Icon(Icons.logout),
-                trailing: Icon(Icons.arrow_forward_ios_rounded),
+              child: ListTile(
+                title: const Text('Logout'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Login()));
+                },
+                leading: const Icon(Icons.logout),
+                trailing: const Icon(Icons.arrow_forward_ios_rounded),
               ),
             ),
             const SizedBox(

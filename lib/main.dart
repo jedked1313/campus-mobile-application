@@ -1,9 +1,9 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_p/screens/lecture.dart';
 import 'package:flutter_p/screens/results.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_p/widgets/sidebar.dart';
-import 'screens/lecture.dart';
 import 'screens/home.dart';
 import 'screens/news.dart';
 
@@ -43,6 +43,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        // leading: IconButton(
+        //   icon: Icon(Icons.menu_book_outlined),
+        //   onPressed: () {
+        //     Scaffold.of(context).openDrawer();
+        //   },
+        // ),
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,

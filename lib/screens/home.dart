@@ -1,53 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_p/screens/Time_table.dart';
 import 'package:flutter_p/standerds/standerds.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:flutter_svg/svg.dart';
 import 'calender.dart';
 import 'lecture.dart';
 import 'results.dart';
-// import 'news.dart';
 
 class HomePage extends StatefulWidget {
   static String title = "Home";
   const HomePage({Key? key}) : super(key: key);
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final Screens screens1 = Screens(
-    title: "Lectures",
-    icon: "assets/icon/lecture.svg",
-    onPressed: const Lectures(),
-  );
-  final Screens screens2 = Screens(
-    title: "Time Table",
-    icon: "assets/icon/calendar1.svg",
-    onPressed: const TimeTable(),
-  );
-  final Screens screens3 = Screens(
-    title: "Calendar",
-    icon: "assets/icon/calendar2.svg",
-    onPressed: const Calender(),
-  );
-  final Screens screens4 = Screens(
-    title: "Results",
-    icon: "assets/icon/result2.svg",
-    onPressed: const Results(),
-  );
-  final Screens screens5 = Screens(
-    title: "ToDo List",
-    icon: "assets/icon/homework1.svg",
-    onPressed: const Lectures(),
-  );
-  final Screens screens6 = Screens(
-    title: "ID Card",
-    icon: "assets/icon/id3.svg",
-    onPressed: const Lectures(),
-  );
-
   @override
   Widget build(BuildContext context) {
     final List<Screens> myList = [
@@ -63,7 +30,8 @@ class _HomePageState extends State<HomePage> {
       'assets/image/slider_2.jpg',
       'assets/image/slider_3.jpg',
     ];
-    return Column(
+    return ListView(
+      shrinkWrap: true,
       children: [
         GFCarousel(
           enlargeMainPage: true,
@@ -107,68 +75,96 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         const SizedBox(
-          height: 15,
+          height: 20,
         ),
-        Expanded(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            physics: const ScrollPhysics(), // Remove the Scroll
-            child: GridView.count(
-                shrinkWrap: true,
-                childAspectRatio: 1.41, // Size of Cards
-                crossAxisCount: 2,
-                padding: const EdgeInsets.only(left: 16, right: 16),
-                mainAxisSpacing: 15,
-                crossAxisSpacing: 20,
-                children: myList.map((data) {
-                  return InkWell(
-                    borderRadius: BorderRadius.circular(10),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => data.onPressed));
-                    },
-                    splashColor: Standerds.color1,
-                    child: Ink(
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: Colors.black.withOpacity(0.3),
-                                spreadRadius: 0.5,
-                                blurRadius: 2 * 2,
-                                offset: const Offset(0, 2))
-                          ],
-                          color: Standerds.color1,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(
-                            data.icon,
-                            width: 40,
-                            height: 40,
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            data.title,
-                            style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600),
-                          ),
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          physics: const ScrollPhysics(), // Remove the Scroll
+          child: GridView.count(
+              shrinkWrap: true,
+              childAspectRatio: 1.41, // Size of Cards
+              crossAxisCount: 2,
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 20,
+              children: myList.map((data) {
+                return InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => data.onPressed));
+                  },
+                  splashColor: Standerds.color1,
+                  child: Ink(
+                    decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black.withOpacity(0.3),
+                              spreadRadius: 0.5,
+                              blurRadius: 2 * 2,
+                              offset: const Offset(0, 2))
                         ],
-                      ),
+                        color: Standerds.color1,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          data.icon,
+                          width: 40,
+                          height: 40,
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          data.title,
+                          style: const TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
-                  );
-                }).toList()),
-          ),
+                  ),
+                );
+              }).toList()),
         ),
       ],
     );
   }
 }
+
+final Screens screens1 = Screens(
+  title: "Lectures",
+  icon: "assets/icon/lecture.svg",
+  onPressed: const Lectures(),
+);
+final Screens screens2 = Screens(
+  title: "Time Table",
+  icon: "assets/icon/calendar1.svg",
+  onPressed: const TimeTable(),
+);
+final Screens screens3 = Screens(
+  title: "Calendar",
+  icon: "assets/icon/calendar2.svg",
+  onPressed: const Calender(),
+);
+final Screens screens4 = Screens(
+  title: "Results",
+  icon: "assets/icon/result2.svg",
+  onPressed: const Results(),
+);
+final Screens screens5 = Screens(
+  title: "ToDo List",
+  icon: "assets/icon/homework1.svg",
+  onPressed: const Lectures(),
+);
+final Screens screens6 = Screens(
+  title: "ID Card",
+  icon: "assets/icon/id3.svg",
+  onPressed: const Lectures(),
+);
 
 class Screens {
   final String title;
