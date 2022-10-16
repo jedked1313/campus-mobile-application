@@ -1,11 +1,12 @@
-import 'package:dot_navigation_bar/dot_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_p/screens/lecture.dart';
-import 'package:flutter_p/screens/results.dart';
+import 'package:flutter_p/screens/profile.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_p/widgets/sidebar.dart';
 import 'screens/home.dart';
 import 'screens/news.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,11 +20,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "University app",
       theme: ThemeData(
-        fontFamily: "Raleway",
+        // brightness: Brightness.dark, // Enable Dark Mode
+        fontFamily: "Raleway", // App Font
         primarySwatch: Standerds.customWhite,
         highlightColor: Colors.transparent,
         splashColor: Colors.transparent,
-        splashFactory: NoSplash.splashFactory,
+        splashFactory: NoSplash.splashFactory, // disable splash color
       ),
       home: const Home(),
     );
@@ -43,12 +45,6 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(
-        //   icon: Icon(Icons.menu_book_outlined),
-        //   onPressed: () {
-        //     Scaffold.of(context).openDrawer();
-        //   },
-        // ),
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,
@@ -57,54 +53,70 @@ class _HomeState extends State<Home> {
       drawer: const Sidebar(),
       body: screensPages[selectedScreen],
       bottomNavigationBar: Container(
-        color: Colors.transparent,
-        child: DotNavigationBar(
-            enablePaddingAnimation: false,
-            backgroundColor: Standerds.color4,
-            dotIndicatorColor: Colors.white,
-            curve: Curves.decelerate,
-            paddingR: const EdgeInsets.all(7),
-            marginR: const EdgeInsets.fromLTRB(20, 0, 20, 10),
-            currentIndex: selectedScreen,
-            unselectedItemColor: Colors.grey,
-            selectedItemColor: Colors.white,
-            onTap: (index) {
+        width: double.infinity,
+        padding: const EdgeInsets.all(10),
+        margin: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                spreadRadius: 0.5,
+                blurRadius: 2 * 2,
+                offset: const Offset(0, 2))
+          ],
+          borderRadius: BorderRadius.circular(15),
+          color: const Color.fromARGB(255, 177, 219, 223),
+        ),
+        child: GNav(
+            gap: 5,
+            backgroundColor: const Color.fromARGB(255, 177, 219, 223),
+            color: Colors.white, // color of icons
+            activeColor: Colors.white, // color of active icon
+            tabBorder: Border.all(width: 1.3, color: Colors.transparent),
+            tabBackgroundColor: Standerds.color1,
+            tabActiveBorder: Border.all(
+                color: const Color.fromRGBO(70, 147, 153, 1), width: 1.3),
+            textStyle: const TextStyle(
+                fontSize: 12,
+                color: Color.fromRGBO(70, 147, 153, 1),
+                fontWeight: FontWeight.bold),
+            onTabChange: (index) {
               setState(() {
-                selectedScreen = index;
-                pageTitle = names[index];
+                selectedScreen = index; // change the screen
+                pageTitle = names[index]; // change the title of screen
               });
             },
-            items: [
-              DotNavigationBarItem(
-                  icon: const Icon(
-                Icons.home,
-                size: 25,
-              )),
-              DotNavigationBarItem(
-                  icon: const Icon(
-                Icons.notifications,
-                size: 25,
-              )),
-              DotNavigationBarItem(
-                  icon: const Icon(
-                Icons.account_circle,
-                size: 25,
-              )),
-              DotNavigationBarItem(
-                  icon: const Icon(
-                Icons.newspaper,
-                size: 25,
-              )),
+            tabs: const [
+              GButton(
+                padding: EdgeInsets.all(8),
+                icon: CupertinoIcons.home,
+                text: "Home",
+              ),
+              GButton(
+                padding: EdgeInsets.all(8),
+                icon: CupertinoIcons.mail_solid,
+                text: "Notification",
+              ),
+              GButton(
+                padding: EdgeInsets.all(8),
+                icon: CupertinoIcons.person_crop_circle_fill,
+                text: "Profile",
+              ),
+              GButton(
+                padding: EdgeInsets.all(8),
+                icon: CupertinoIcons.news_solid,
+                text: "News",
+              ),
             ]),
       ),
     );
   }
 }
 
-List names = [HomePage.title, Lectures.title, Results.title, News.title];
+List names = [HomePage.title, Lectures.title, Profile.title, News.title];
 List<Widget> screensPages = [
   const HomePage(),
   const Lectures(),
-  const Results(),
+  const Profile(),
   const News()
 ];

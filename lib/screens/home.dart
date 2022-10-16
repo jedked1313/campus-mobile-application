@@ -17,21 +17,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    final List<Screens> myList = [
-      screens1,
-      screens2,
-      screens3,
-      screens4,
-      screens5,
-      screens6
-    ];
-    final List<String> imageList = [
-      'assets/image/slider_1.jpg',
-      'assets/image/slider_2.jpg',
-      'assets/image/slider_3.jpg',
-    ];
-    return ListView(
-      shrinkWrap: true,
+    return Column(
       children: [
         GFCarousel(
           enlargeMainPage: true,
@@ -74,67 +60,80 @@ class _HomePageState extends State<HomePage> {
             });
           },
         ),
-        const SizedBox(
-          height: 20,
+        SizedBox(
+          height: (MediaQuery.of(context).size.height < 700 ? 10 : 20),
         ),
-        SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          physics: const ScrollPhysics(), // Remove the Scroll
-          child: GridView.count(
-              shrinkWrap: true,
-              childAspectRatio: 1.41, // Size of Cards
-              crossAxisCount: 2,
-              padding: const EdgeInsets.only(left: 16, right: 16),
-              mainAxisSpacing: 15,
-              crossAxisSpacing: 20,
-              children: myList.map((data) {
-                return InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => data.onPressed));
-                  },
-                  splashColor: Standerds.color1,
-                  child: Ink(
-                    decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black.withOpacity(0.3),
-                              spreadRadius: 0.5,
-                              blurRadius: 2 * 2,
-                              offset: const Offset(0, 2))
-                        ],
-                        color: Standerds.color1,
-                        borderRadius: BorderRadius.circular(10)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset(
-                          data.icon,
-                          width: 40,
-                          height: 40,
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          data.title,
-                          style: const TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.w600),
-                        ),
+        GridView.count(
+          
+            shrinkWrap: true,
+            childAspectRatio: 1.41, // Size of Cards
+            crossAxisCount: 2,
+            padding: const EdgeInsets.only(left: 16, right: 16),
+            mainAxisSpacing: 15,
+            crossAxisSpacing: 15,
+            children: myList.map((data) {
+              return InkWell(
+                borderRadius: BorderRadius.circular(10),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => data.onPressed));
+                },
+                splashColor: Standerds.color1,
+                child: Ink(
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(0.3),
+                            spreadRadius: 0.5,
+                            blurRadius: 2 * 2,
+                            offset: const Offset(0, 2))
                       ],
-                    ),
+                      color: Standerds.color1,
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        data.icon,
+                        width: 40,
+                        height: 40,
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        data.title,
+                        style: const TextStyle(
+                            color: Color.fromRGBO(70, 147, 153, 1),
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ],
                   ),
-                );
-              }).toList()),
-        ),
+                ),
+              );
+            }).toList()),
       ],
     );
   }
 }
 
+final List<Screens> myList = [
+  // List of Screens
+  screens1,
+  screens2,
+  screens3,
+  screens4,
+  screens5,
+  screens6
+];
+final List<String> imageList = [
+  // List of Carousel Images
+  'assets/image/slider_1.jpg',
+  'assets/image/slider_2.jpg',
+  'assets/image/slider_3.jpg',
+];
+
+// Grid Items
 final Screens screens1 = Screens(
   title: "Lectures",
   icon: "assets/icon/lecture.svg",

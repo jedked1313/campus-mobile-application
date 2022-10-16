@@ -34,21 +34,21 @@ class Calender extends StatelessWidget {
               color: Colors.black,
             ),
             headingTextStyle: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
+              fontWeight: FontWeight.w400,
+              fontSize: 16,
               color: Colors.black,
             ),
             columns: const [
               DataColumn(
                   label: Expanded(
                       child: Text(
-                "التاريخ",
+                "Date",
                 textAlign: TextAlign.center,
               ))),
               DataColumn(
                   label: Expanded(
                       child: Text(
-                "البند",
+                "Event",
                 textAlign: TextAlign.center,
               ))),
             ],

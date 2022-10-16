@@ -29,9 +29,9 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  dot_navigation_bar: ^1.0.1+4 # BottomNavigationBar
   flutter_svg: ^0.22.0
   getwidget: ^ 2.0.4
+  google_nav_bar: ^5.0.6 # BottomNavigationBar
   flutter:
     sdk: flutter
 
@@ -73,6 +73,7 @@ flutter:
     - assets/icon/id3.svg
     - assets/icon/result2.svg
     - assets/icon/calendar2.svg
+    - assets/icon/user1.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

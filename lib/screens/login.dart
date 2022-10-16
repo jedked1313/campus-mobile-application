@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_p/standerds/standerds.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -11,46 +12,47 @@ class Login extends StatelessWidget {
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.centerLeft, colors: [
-            Colors.cyan.shade500,
-            Colors.cyan.shade300,
-            Colors.cyan.shade400,
+            Standerds.color1.withOpacity(0.6),
+            Standerds.color1.withOpacity(0.7),
+            Standerds.color1.withOpacity(0.9),
           ])),
         ),
       ),
       body: Container(
-        height: 900,
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(begin: Alignment.centerLeft, colors: [
-            Colors.cyan.shade500,
-            Colors.cyan.shade300,
-            Colors.cyan.shade400,
+            Standerds.color1.withOpacity(0.6),
+            Standerds.color1.withOpacity(0.7),
+            Standerds.color1.withOpacity(0.9),
           ]),
         ),
         child: ListView(
           shrinkWrap: true,
           children: [
             const SizedBox(
-              height: 40,
+              height: 15,
             ),
             Column(
               children: const [
                 Text(
                   "Login",
-                  style: TextStyle(color: Colors.white, fontSize: 40),
+                  style: TextStyle(
+                      color: Color.fromRGBO(70, 147, 153, 1), fontSize: 35),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Text(
                   "Welcome To Our App",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
+                  style: TextStyle(
+                      color: Color.fromRGBO(70, 147, 153, 1), fontSize: 18),
                 ),
                 SizedBox(height: 10)
               ],
             ),
             Container(
-              height: 800,
+              height: MediaQuery.of(context).size.height / 1.5,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -68,27 +70,29 @@ class Login extends StatelessWidget {
                       children: [
                         Container(
                           padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               border: Border(
-                                  bottom:
-                                      BorderSide(color: Colors.grey.shade300))),
+                                  bottom: BorderSide(
+                                      color: Color.fromRGBO(70, 147, 153, 1)))),
                           child: const TextField(
                             decoration: InputDecoration(
                                 hintText: "Enter your email",
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: TextStyle(
+                                    color: Color.fromRGBO(70, 147, 153, 1)),
                                 border: InputBorder.none),
                           ),
                         ),
                         Container(
                           padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               border: Border(
-                                  bottom:
-                                      BorderSide(color: Colors.grey.shade300))),
+                                  bottom: BorderSide(
+                                      color: Color.fromRGBO(70, 147, 153, 1)))),
                           child: const TextField(
                             decoration: InputDecoration(
                                 hintText: "Enter your password",
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: TextStyle(
+                                    color: Color.fromRGBO(70, 147, 153, 1)),
                                 border: InputBorder.none),
                           ),
                         ),
@@ -99,7 +103,7 @@ class Login extends StatelessWidget {
                     ),
                     const Text(
                       "Forgot Password?",
-                      style: TextStyle(color: Colors.grey),
+                      style: TextStyle(color: Color.fromRGBO(70, 147, 153, 1)),
                     ),
                     const SizedBox(
                       height: 25,
@@ -110,7 +114,7 @@ class Login extends StatelessWidget {
                         height: 50,
                         margin: const EdgeInsets.symmetric(horizontal: 50),
                         decoration: BoxDecoration(
-                          color: Colors.cyan[500],
+                          color: Standerds.color1,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Center(
