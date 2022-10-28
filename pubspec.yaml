@@ -32,6 +32,7 @@ dependencies:
   flutter_svg: ^0.22.0
   getwidget: ^ 2.0.4
   google_nav_bar: ^5.0.6 # BottomNavigationBar
+  intro_slider: ^4.2.0
   flutter:
     sdk: flutter
 
@@ -66,6 +67,11 @@ flutter:
     - assets/image/slider_1.jpg
     - assets/image/slider_2.jpg
     - assets/image/slider_3.jpg
+    - assets/image/lectures.jpg
+    - assets/image/results.jpg
+    - assets/image/splash1.png
+    - assets/image/splash2.png
+    - assets/image/splash3.png
     # Icons
     - assets/icon/lecture.svg
     - assets/icon/calendar1.svg
@@ -74,6 +80,7 @@ flutter:
     - assets/icon/result2.svg
     - assets/icon/calendar2.svg
     - assets/icon/user1.svg
+    - assets/icon/lec.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -95,6 +102,13 @@ flutter:
         - asset: assets/fonts/Raleway-Black.ttf
           weight: 900
           # style: italic
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins-BlackItalic.ttf
+          weight: 900
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

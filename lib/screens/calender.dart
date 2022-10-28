@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_p/standerds/standerds.dart';
 
 class Calender extends StatelessWidget {
   const Calender({super.key});
@@ -6,73 +7,64 @@ class Calender extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Calender",
-          style: TextStyle(fontWeight: FontWeight.w600),
+        appBar: AppBar(
+          title: const Text(
+            "Calender",
+          ),
+          centerTitle: true,
+          shadowColor: Colors.transparent,
         ),
-        centerTitle: true,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.transparent,
-      ),
-      body: ListView(
-        children: [
+        body: ListView(children: [
           const SizedBox(
             height: 20,
           ),
           Text(
-            "Today's date : ${DateTime.now().year.toString()}/${DateTime.now().month.toString()}/${DateTime.now().day.toString()}",
+            "Today's date : ${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}",
             textAlign: TextAlign.center,
           ),
           const SizedBox(
             height: 20,
           ),
-          DataTable(
-            dataRowHeight: 80,
-            dataTextStyle: const TextStyle(
-              fontSize: 10,
-              color: Colors.black,
-            ),
-            headingTextStyle: const TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 16,
-              color: Colors.black,
-            ),
-            columns: const [
-              DataColumn(
-                  label: Expanded(
-                      child: Text(
-                "Date",
-                textAlign: TextAlign.center,
-              ))),
-              DataColumn(
-                  label: Expanded(
-                      child: Text(
-                "Event",
-                textAlign: TextAlign.center,
-              ))),
-            ],
-            rows: const [
-              DataRow(cells: [
-                DataCell(Center(child: Text("2022/12/3"))),
-                DataCell(Center(
-                  child: Text(
-                    "بداية إمتحانات الفصل الثاني",
-                  ),
-                )),
-              ]),
-              DataRow(cells: [
-                DataCell(Center(child: Text("2022/12/22"))),
-                DataCell(Center(
-                  child: Text(
-                    "نهاية إمتحانات الفصل الثاني",
-                  ),
-                )),
-              ]),
-            ],
+          Column(
+            children: events.entries.map((data) {
+              return Container(
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    color: Standerds.color1.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Event Name",
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        Text(
+                            style: const TextStyle(fontSize: 12),
+                            "Date : ${data.value}"),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(data.key)
+                  ],
+                ),
+              );
+            }).toList(),
           )
-        ],
-      ),
-    );
+        ]));
   }
 }
+
+const Map<String, String> events = {
+  "بداية الفصل الدراسي الثاني": "2022/8/27",
+  "نهاية الفصل الدراسي الثاني": "2022/11/17",
+  "بداية امتحانات الفصل الدراسي الثاني": "2022/12/3",
+  "نهاية امتحانات الفصل الدراسي الثاني": "2022/12/22",
+  "اعلان نتيجة الفصل الدراسي الثاني": "2023/1/4",
+};

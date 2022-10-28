@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_p/screens/login.dart';
 import 'package:flutter_p/screens/profile.dart';
 import 'package:flutter_p/standerds/standerds.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:getwidget/getwidget.dart';
 
 class Sidebar extends StatelessWidget {
@@ -20,7 +21,11 @@ class Sidebar extends StatelessWidget {
                 radius: 80.0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(80),
-                  child: const Icon(Icons.account_circle_outlined),
+                  child: SvgPicture.asset(
+                    "assets/icon/user1.svg",
+                    width: 80,
+                    height: 80,
+                  ),
                 ),
               ),
               child: Column(

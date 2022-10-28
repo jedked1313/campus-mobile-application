@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_p/screens/lecture.dart';
+import 'package:flutter_p/screens/notifications.dart';
 import 'package:flutter_p/screens/profile.dart';
+import 'package:flutter_p/screens/splash.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_p/widgets/sidebar.dart';
 import 'screens/home.dart';
@@ -20,14 +21,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "University app",
       theme: ThemeData(
-        // brightness: Brightness.dark, // Enable Dark Mode
-        fontFamily: "Raleway", // App Font
-        primarySwatch: Standerds.customWhite,
-        highlightColor: Colors.transparent,
-        splashColor: Colors.transparent,
-        splashFactory: NoSplash.splashFactory, // disable splash color
-      ),
-      home: const Home(),
+          // brightness: Brightness.dark, // Enable Dark Mode
+          fontFamily: "Poppins", // App Font
+          primarySwatch: Standerds.customWhite,
+          // highlightColor: Colors.transparent,
+          // splashColor: Colors.transparent,
+          splashFactory: NoSplash.splashFactory, // disable splash color
+          canvasColor: Colors.white),
+      home: const Spalsh(),
     );
   }
 }
@@ -45,10 +46,15 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
         centerTitle: true,
-        title: Text(pageTitle),
+        title: Text(
+          pageTitle,
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Standerds.color4,
+              fontSize: 16),
+        ),
       ),
       drawer: const Sidebar(),
       body: screensPages[selectedScreen],
@@ -65,21 +71,19 @@ class _HomeState extends State<Home> {
                 offset: const Offset(0, 2))
           ],
           borderRadius: BorderRadius.circular(15),
-          color: const Color.fromARGB(255, 177, 219, 223),
+          color: Standerds.color1,
         ),
         child: GNav(
             gap: 5,
-            backgroundColor: const Color.fromARGB(255, 177, 219, 223),
+            backgroundColor: Standerds.color1,
             color: Colors.white, // color of icons
             activeColor: Colors.white, // color of active icon
             tabBorder: Border.all(width: 1.3, color: Colors.transparent),
-            tabBackgroundColor: Standerds.color1,
+            tabBackgroundColor: Standerds.color2,
             tabActiveBorder: Border.all(
                 color: const Color.fromRGBO(70, 147, 153, 1), width: 1.3),
             textStyle: const TextStyle(
-                fontSize: 12,
-                color: Color.fromRGBO(70, 147, 153, 1),
-                fontWeight: FontWeight.bold),
+                fontSize: 10, color: Colors.white, fontWeight: FontWeight.bold),
             onTabChange: (index) {
               setState(() {
                 selectedScreen = index; // change the screen
@@ -88,22 +92,22 @@ class _HomeState extends State<Home> {
             },
             tabs: const [
               GButton(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 5),
                 icon: CupertinoIcons.home,
                 text: "Home",
               ),
               GButton(
-                padding: EdgeInsets.all(8),
-                icon: CupertinoIcons.mail_solid,
+                padding: EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 5),
+                icon: CupertinoIcons.text_bubble_fill,
                 text: "Notification",
               ),
               GButton(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 5),
                 icon: CupertinoIcons.person_crop_circle_fill,
                 text: "Profile",
               ),
               GButton(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 5),
                 icon: CupertinoIcons.news_solid,
                 text: "News",
               ),
@@ -113,10 +117,10 @@ class _HomeState extends State<Home> {
   }
 }
 
-List names = [HomePage.title, Lectures.title, Profile.title, News.title];
+List names = [HomePage.title, Notifications.title, Profile.title, News.title];
 List<Widget> screensPages = [
   const HomePage(),
-  const Lectures(),
+  const Notifications(),
   const Profile(),
   const News()
 ];

@@ -14,8 +14,20 @@ class Standerds {
     800: Color.fromARGB(255, 250, 250, 250),
     900: Color.fromARGB(255, 250, 250, 250),
   });
-  static Color color1 = const Color.fromRGBO(167, 210, 203, 1);
-  static Color color2 = const Color.fromRGBO(242, 211, 136, 1);
-  static Color color3 = const Color.fromRGBO(201, 132, 116, 1);
-  static Color color4 = const Color.fromRGBO(135, 76, 98, 1);
+  static Color color1 = const Color.fromRGBO(0, 126, 167, 1);
+  static Color color2 = const Color.fromRGBO(0, 168, 232, 1);
+  static Color color3 = const Color.fromRGBO(0, 52, 89, 1);
+  static Color color4 = const Color.fromRGBO(0, 23, 31, 1);
+}
+
+// ********************** Widgets ********************** //
+showToast(title) {
+  return SnackBar(
+    content: Text(
+      "Select the $title !",
+      style: const TextStyle(color: Colors.black),
+    ),
+    duration: const Duration(seconds: 2),
+    backgroundColor: Standerds.color1,
+  );
 }

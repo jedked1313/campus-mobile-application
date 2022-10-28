@@ -61,10 +61,9 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         SizedBox(
-          height: (MediaQuery.of(context).size.height < 700 ? 10 : 20),
+          height: (MediaQuery.of(context).size.height < 700 ? 10 : 25),
         ),
         GridView.count(
-          
             shrinkWrap: true,
             childAspectRatio: 1.41, // Size of Cards
             crossAxisCount: 2,
@@ -104,8 +103,9 @@ class _HomePageState extends State<HomePage> {
                       Text(
                         data.title,
                         style: const TextStyle(
-                            color: Color.fromRGBO(70, 147, 153, 1),
-                            fontWeight: FontWeight.w600),
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12),
                       ),
                     ],
                   ),
@@ -155,7 +155,7 @@ final Screens screens4 = Screens(
   onPressed: const Results(),
 );
 final Screens screens5 = Screens(
-  title: "ToDo List",
+  title: "Attendance",
   icon: "assets/icon/homework1.svg",
   onPressed: const Lectures(),
 );

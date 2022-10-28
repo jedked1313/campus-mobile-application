@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_p/main.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 
 class Login extends StatelessWidget {
@@ -38,7 +39,9 @@ class Login extends StatelessWidget {
                 Text(
                   "Login",
                   style: TextStyle(
-                      color: Color.fromRGBO(70, 147, 153, 1), fontSize: 35),
+                      color: Colors.white,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
                   height: 20,
@@ -46,7 +49,9 @@ class Login extends StatelessWidget {
                 Text(
                   "Welcome To Our App",
                   style: TextStyle(
-                      color: Color.fromRGBO(70, 147, 153, 1), fontSize: 18),
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height: 10)
               ],
@@ -76,9 +81,10 @@ class Login extends StatelessWidget {
                                       color: Color.fromRGBO(70, 147, 153, 1)))),
                           child: const TextField(
                             decoration: InputDecoration(
-                                hintText: "Enter your email",
+                                hintText: "Enter Your Number",
                                 hintStyle: TextStyle(
-                                    color: Color.fromRGBO(70, 147, 153, 1)),
+                                    color: Color.fromRGBO(70, 147, 153, 1),
+                                    fontSize: 12),
                                 border: InputBorder.none),
                           ),
                         ),
@@ -90,9 +96,10 @@ class Login extends StatelessWidget {
                                       color: Color.fromRGBO(70, 147, 153, 1)))),
                           child: const TextField(
                             decoration: InputDecoration(
-                                hintText: "Enter your password",
+                                hintText: "Enter Your Password",
                                 hintStyle: TextStyle(
-                                    color: Color.fromRGBO(70, 147, 153, 1)),
+                                    color: Color.fromRGBO(70, 147, 153, 1),
+                                    fontSize: 12),
                                 border: InputBorder.none),
                           ),
                         ),
@@ -101,19 +108,37 @@ class Login extends StatelessWidget {
                     const SizedBox(
                       height: 25,
                     ),
-                    const Text(
-                      "Forgot Password?",
-                      style: TextStyle(color: Color.fromRGBO(70, 147, 153, 1)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: const [
+                        Text(
+                          "Forgot Password?",
+                          style: TextStyle(
+                              color: Color.fromRGBO(70, 147, 153, 1),
+                              fontSize: 12),
+                        ),
+                      ],
                     ),
                     const SizedBox(
                       height: 25,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Home()));
+                      },
                       child: Container(
                         height: 50,
                         margin: const EdgeInsets.symmetric(horizontal: 50),
                         decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                              begin: Alignment.centerLeft,
+                              colors: [
+                                Standerds.color1.withOpacity(0.8),
+                                Standerds.color1,
+                              ]),
                           color: Standerds.color1,
                           borderRadius: BorderRadius.circular(10),
                         ),
@@ -122,7 +147,7 @@ class Login extends StatelessWidget {
                             "Login",
                             style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 15,
+                                fontSize: 12,
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
