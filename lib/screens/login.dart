@@ -9,13 +9,12 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shadowColor: Colors.transparent,
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.centerLeft, colors: [
-            Standerds.color1.withOpacity(0.6),
-            Standerds.color1.withOpacity(0.7),
-            Standerds.color1.withOpacity(0.9),
+            color1.withOpacity(0.6),
+            color1.withOpacity(0.7),
+            color1.withOpacity(0.9),
           ])),
         ),
       ),
@@ -23,9 +22,9 @@ class Login extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(begin: Alignment.centerLeft, colors: [
-            Standerds.color1.withOpacity(0.6),
-            Standerds.color1.withOpacity(0.7),
-            Standerds.color1.withOpacity(0.9),
+            color1.withOpacity(0.6),
+            color1.withOpacity(0.7),
+            color1.withOpacity(0.9),
           ]),
         ),
         child: ListView(
@@ -136,10 +135,10 @@ class Login extends StatelessWidget {
                           gradient: LinearGradient(
                               begin: Alignment.centerLeft,
                               colors: [
-                                Standerds.color1.withOpacity(0.8),
-                                Standerds.color1,
+                                color1.withOpacity(0.8),
+                                color1,
                               ]),
-                          color: Standerds.color1,
+                          color: color1,
                           borderRadius: BorderRadius.circular(10),
                         ),
                         child: const Center(

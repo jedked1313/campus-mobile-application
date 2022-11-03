@@ -17,10 +17,10 @@ class _LecturesState extends State<Lectures> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text(Lectures.title),
-        centerTitle: true,
-        shadowColor: Colors.transparent,
-        backgroundColor: Colors.white,
+        title: Text(
+          Lectures.title,
+          style: titleStyle,
+        ),
       ),
       body: Column(
         children: [
@@ -113,17 +113,18 @@ class ViewLectures extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
-        child: ListView(
-          children: [
-            for (int i = 1; i <= 5; i++) createLec(i),
-          ],
+        child: ListView.builder(
+          itemBuilder: ((context, index) {
+            return _createLec(index + 1);
+          }),
+          itemCount: 12,
         ),
       ),
     );
   }
 }
 
-createLec(i) {
+_createLec(i) {
   return Container(
     margin: const EdgeInsets.only(bottom: 10),
     child: InkWell(
@@ -142,7 +143,7 @@ createLec(i) {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: Standerds.color1,
+                    color: color1,
                     borderRadius: BorderRadius.circular(8)),
                 child: const Icon(
                   Icons.library_books_rounded,
@@ -153,7 +154,7 @@ createLec(i) {
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                    color: Standerds.color1,
+                    color: color1,
                     borderRadius: BorderRadius.circular(25)),
                 child: const Icon(
                   Icons.arrow_forward_rounded,

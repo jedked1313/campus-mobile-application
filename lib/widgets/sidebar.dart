@@ -15,7 +15,7 @@ class Sidebar extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             GFDrawerHeader(
-              decoration: BoxDecoration(color: Standerds.color1),
+              decoration: BoxDecoration(color: color1),
               centerAlign: true,
               currentAccountPicture: GFAvatar(
                 radius: 80.0,
@@ -33,14 +33,19 @@ class Sidebar extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Text('user@userid.com'),
+                  Text(
+                    'user@userid.com',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ],
               ),
             ),
             setData("Profile", Icons.account_circle, context, const Profile()),
             setData("Settings", Icons.settings, context, const Login()),
             setData("Login", Icons.login, context, const Login()),
-            setData("Help", Icons.help_rounded, context, const Login()),
+            setData("Help and Support", Icons.headphones_rounded, context,
+                const Login()),
+            setData("About", Icons.help_rounded, context, const Login()),
           ],
         ),
       ),
@@ -48,7 +53,7 @@ class Sidebar extends StatelessWidget {
   }
 }
 
-setData(String title, IconData icon, BuildContext context, page) {
+setData(String title, IconData icon, BuildContext context, Widget page) {
   return Column(
     children: [
       const SizedBox(
@@ -57,11 +62,14 @@ setData(String title, IconData icon, BuildContext context, page) {
       Container(
         margin: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(
-          color: Standerds.color1,
+          color: color1,
           borderRadius: BorderRadius.circular(30),
         ),
         child: ListTile(
-          title: Text(title),
+          title: Text(
+            title,
+            style: const TextStyle(color: Colors.white, fontSize: 12),
+          ),
           onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => page));
@@ -70,7 +78,10 @@ setData(String title, IconData icon, BuildContext context, page) {
             icon,
             color: Colors.white,
           ),
-          trailing: const Icon(Icons.arrow_forward_ios_rounded),
+          trailing: const Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: Colors.white,
+          ),
         ),
       ),
     ],

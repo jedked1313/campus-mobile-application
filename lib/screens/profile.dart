@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_svg/svg.dart';
@@ -12,9 +10,7 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Standerds.color1,
-        shadowColor: Colors.transparent,
-        centerTitle: true,
+        backgroundColor: color1,
         title: Text(title),
       ),
       body: Column(
@@ -24,7 +20,7 @@ class Profile extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.25,
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: Standerds.color1,
+                  color: color1,
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(25),
                     bottomRight: Radius.circular(25),
@@ -50,8 +46,8 @@ class Profile extends StatelessWidget {
                   Text(UserInfo.username),
                 ],
               )),
-          Padding(
-            padding: const EdgeInsets.only(top: 20.0, left: 20),
+          const Padding(
+            padding: EdgeInsets.only(top: 20.0, left: 20),
             child: Text(
               "Personal Details",
             ),
@@ -102,8 +98,7 @@ Widget setData(IconData icon, String label, dynamic inputField) {
             height: 40,
             width: 40,
             decoration: BoxDecoration(
-                color: Standerds.color1,
-                borderRadius: BorderRadius.circular(10)),
+                color: color1, borderRadius: BorderRadius.circular(10)),
             child: Icon(
               icon,
               size: 25,

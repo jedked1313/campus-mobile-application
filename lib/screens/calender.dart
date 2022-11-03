@@ -8,11 +8,10 @@ class Calender extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
+          title: Text(
             "Calender",
+            style: titleStyle,
           ),
-          centerTitle: true,
-          shadowColor: Colors.transparent,
         ),
         body: ListView(children: [
           const SizedBox(
@@ -31,7 +30,7 @@ class Calender extends StatelessWidget {
                 margin: const EdgeInsets.all(10),
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: Standerds.color1.withOpacity(0.5),
+                    color: color1.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(10)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,9 +61,9 @@ class Calender extends StatelessWidget {
 }
 
 const Map<String, String> events = {
-  "بداية الفصل الدراسي الثاني": "2022/8/27",
-  "نهاية الفصل الدراسي الثاني": "2022/11/17",
-  "بداية امتحانات الفصل الدراسي الثاني": "2022/12/3",
-  "نهاية امتحانات الفصل الدراسي الثاني": "2022/12/22",
-  "اعلان نتيجة الفصل الدراسي الثاني": "2023/1/4",
+  "Beginning of the second semester": "2022/8/27",
+  "End of the second semester": "2022/11/17",
+  "Beginning of the second semester exams": "2022/12/3",
+  "End of the second semester exams": "2022/12/22",
+  "Announcing the results of the second semester": "2023/1/4",
 };

@@ -1,16 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_p/screens/notifications.dart';
-import 'package:flutter_p/screens/profile.dart';
-import 'package:flutter_p/screens/splash.dart';
+import 'package:flutter_p/state management/my_provider.dart';
+// import 'package:flutter_p/screens/splash.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_p/widgets/sidebar.dart';
-import 'screens/home.dart';
-import 'screens/news.dart';
+import 'package:provider/provider.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider<MyProvider>(
+      create: (context) => MyProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -18,30 +17,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: "University app",
-      theme: ThemeData(
-          // brightness: Brightness.dark, // Enable Dark Mode
-          fontFamily: "Poppins", // App Font
-          primarySwatch: Standerds.customWhite,
-          // highlightColor: Colors.transparent,
-          // splashColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory, // disable splash color
-          canvasColor: Colors.white),
-      home: const Spalsh(),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+            // brightness: Brightness.dark, // Enable Dark Mode
+            fontFamily: "Poppins", // App Font
+            primarySwatch: customWhite,
+            appBarTheme: const AppBarTheme(
+              shadowColor: Colors.transparent,
+              centerTitle: true,
+            ),
+            splashFactory: NoSplash.splashFactory, // disable splash color
+            canvasColor: Colors.white),
+        home: const Home());
   }
 }
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  var selectedScreen = 0;
-  String pageTitle = "Home";
+class Home extends StatelessWidget {
+  const Home({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,15 +41,13 @@ class _HomeState extends State<Home> {
         shadowColor: Colors.transparent,
         centerTitle: true,
         title: Text(
-          pageTitle,
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Standerds.color4,
-              fontSize: 16),
+          Provider.of<MyProvider>(context).pageTitle,
+          style: titleStyle,
         ),
       ),
       drawer: const Sidebar(),
-      body: screensPages[selectedScreen],
+      body: Provider.of<MyProvider>(context).screensPages[
+          Provider.of<MyProvider>(context, listen: false).selectedScreen],
       bottomNavigationBar: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(10),
@@ -71,24 +61,22 @@ class _HomeState extends State<Home> {
                 offset: const Offset(0, 2))
           ],
           borderRadius: BorderRadius.circular(15),
-          color: Standerds.color1,
+          color: color1,
         ),
         child: GNav(
             gap: 5,
-            backgroundColor: Standerds.color1,
+            backgroundColor: color1,
             color: Colors.white, // color of icons
             activeColor: Colors.white, // color of active icon
             tabBorder: Border.all(width: 1.3, color: Colors.transparent),
-            tabBackgroundColor: Standerds.color2,
+            tabBackgroundColor: color2,
             tabActiveBorder: Border.all(
                 color: const Color.fromRGBO(70, 147, 153, 1), width: 1.3),
             textStyle: const TextStyle(
                 fontSize: 10, color: Colors.white, fontWeight: FontWeight.bold),
             onTabChange: (index) {
-              setState(() {
-                selectedScreen = index; // change the screen
-                pageTitle = names[index]; // change the title of screen
-              });
+              Provider.of<MyProvider>(context, listen: false)
+                  .changeScreen(index);
             },
             tabs: const [
               GButton(
@@ -103,24 +91,16 @@ class _HomeState extends State<Home> {
               ),
               GButton(
                 padding: EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 5),
-                icon: CupertinoIcons.person_crop_circle_fill,
-                text: "Profile",
+                icon: CupertinoIcons.news_solid,
+                text: "News",
               ),
               GButton(
                 padding: EdgeInsets.only(top: 8, bottom: 8, left: 8, right: 5),
-                icon: CupertinoIcons.news_solid,
-                text: "News",
+                icon: CupertinoIcons.settings,
+                text: "Setting",
               ),
             ]),
       ),
     );
   }
 }
-
-List names = [HomePage.title, Notifications.title, Profile.title, News.title];
-List<Widget> screensPages = [
-  const HomePage(),
-  const Notifications(),
-  const Profile(),
-  const News()
-];

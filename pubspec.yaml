@@ -29,10 +29,12 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  flutter_svg: ^0.22.0
-  getwidget: ^ 2.0.4
+  flutter_svg: ^0.22.0 # add SVG
+  getwidget: ^ 2.0.4 # get widget library
   google_nav_bar: ^5.0.6 # BottomNavigationBar
-  intro_slider: ^4.2.0
+  intro_slider: ^4.2.0 # Splash Screen
+  provider: # State Management
+  readmore: ^2.1.0 # show more and show less on text
   flutter:
     sdk: flutter
 
@@ -104,10 +106,23 @@ flutter:
           # style: italic
     - family: Poppins
       fonts:
-        - asset: assets/fonts/Poppins-Regular.ttf
-        - asset: assets/fonts/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins-100.ttf
+          weight: 100
+        - asset: assets/fonts/Poppins-200.ttf
+          weight: 200
+        - asset: assets/fonts/Poppins-300.ttf
+          weight: 300
+        - asset: assets/fonts/Poppins-400.ttf
+          weight: 400
+        - asset: assets/fonts/Poppins-500.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins-600.ttf
+          weight: 600
+        - asset: assets/fonts/Poppins-700.ttf
           weight: 700
-        - asset: assets/fonts/Poppins-BlackItalic.ttf
+        - asset: assets/fonts/Poppins-800.ttf
+          weight: 800
+        - asset: assets/fonts/Poppins-900.ttf
           weight: 900
   #
   # For details regarding fonts from package dependencies,

@@ -3,8 +3,10 @@ import 'package:flutter_p/screens/Time_table.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_svg/svg.dart';
+import 'attendance.dart';
 import 'calender.dart';
 import 'lecture.dart';
+import 'news.dart';
 import 'results.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,8 +33,12 @@ class _HomePageState extends State<HomePage> {
             (url) {
               return InkWell(
                 onTap: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => const News()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => News(
+                                appBar: AppBar(),
+                              )));
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -77,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => data.onPressed));
                 },
-                splashColor: Standerds.color1,
+                splashColor: color1,
                 child: Ink(
                   decoration: BoxDecoration(
                       boxShadow: [
@@ -87,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                             blurRadius: 2 * 2,
                             offset: const Offset(0, 2))
                       ],
-                      color: Standerds.color1,
+                      color: color1,
                       borderRadius: BorderRadius.circular(10)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -157,7 +163,7 @@ final Screens screens4 = Screens(
 final Screens screens5 = Screens(
   title: "Attendance",
   icon: "assets/icon/homework1.svg",
-  onPressed: const Lectures(),
+  onPressed: const Attendance(),
 );
 final Screens screens6 = Screens(
   title: "ID Card",

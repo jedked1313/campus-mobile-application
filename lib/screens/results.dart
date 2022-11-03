@@ -20,10 +20,10 @@ class _ResultsState extends State<Results> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(Results.title),
-        centerTitle: true,
-        shadowColor: Colors.transparent,
-      ),
+          title: Text(
+        Results.title,
+        style: titleStyle,
+      )),
       body: Column(
         children: [
           SizedBox(
@@ -103,17 +103,15 @@ class ResultsDetails extends StatelessWidget {
           "$title Year Grades",
           style: const TextStyle(fontSize: 14),
         ),
-        centerTitle: true,
-        shadowColor: Colors.transparent,
       ),
       body: ListView(children: [
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: DataTable(
               decoration: BoxDecoration(
-                  color: Standerds.color1.withOpacity(0.6),
+                  color: color1.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Standerds.color1)),
+                  border: Border.all(color: color1)),
               // headingRowColor: MaterialStateProperty.all(Colors.green),
               columnSpacing: 0,
               dataRowHeight: 70,
@@ -169,4 +167,24 @@ const grades = {
   "Data Structures": "B+",
   "Artificial Intelligence": "B+",
   "Internet of Things": "C+",
+};
+const grades2 = {
+  "first": {
+    "C++": "A+",
+    "Java": "A+",
+    "Programming Basics": "B+",
+    "Data Structures": "B+",
+    "Artificial Intelligence": "B+",
+    "Internet of Things": "C+",
+  },
+  "second": {
+    "Data Mining": "B+",
+    "Mobile Computing": "A+",
+    "Networking": "B+",
+    "Web Programming": "B",
+    "Algorithms": "B+",
+    "Operating System": "C",
+  },
+  "third": {},
+  "fourth": {},
 };

@@ -1,12 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
+import '../standerds/standerds.dart';
 
+// ignore: must_be_immutable
 class News extends StatelessWidget {
   static String title = "News";
-  const News({Key? key}) : super(key: key);
+  AppBar? _appBar;
+  News({Key? key, AppBar? appBar})
+      : _appBar = appBar,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: _appBar == null
+          ? null
+          : _appBar = AppBar(
+              title: Text(
+                "News",
+                style: titleStyle,
+              ),
+            ),
       body: Column(
         children: [
           Expanded(
@@ -17,9 +31,14 @@ class News extends StatelessWidget {
                       const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                   margin: const EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color.fromARGB(255, 201, 201, 201),
-                  ),
+                      borderRadius: BorderRadius.circular(5),
+                      gradient:
+                          LinearGradient(begin: Alignment.centerLeft, colors: [
+                        Colors.blueAccent.shade200,
+                        Colors.blueAccent.shade400,
+                      ]),
+                      border: Border.all(
+                          width: 1, color: Colors.blueAccent.shade200)),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -39,8 +58,9 @@ class News extends StatelessWidget {
                             height: 10,
                           ),
                           Text(
-                            "Date : ${DateTime.now().year.toString()}/${DateTime.now().month.toString()}/${DateTime.now().day.toString()}",
-                            style: const TextStyle(fontSize: 10),
+                            "Date : ${DateTime.now().year}/${DateTime.now().month}/${DateTime.now().day}",
+                            style: const TextStyle(
+                                fontSize: 10, color: Colors.white),
                           ),
                         ],
                       ),
@@ -50,24 +70,32 @@ class News extends StatelessWidget {
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text("Report 1"),
-                            const SizedBox(
+                          children: const [
+                            Text(
+                              "Report 1",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white),
+                            ),
+                            SizedBox(
                               height: 3,
                             ),
-                            const Text(
-                              "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet",
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w300),
-                            ),
-                            InkWell(
-                              child: const Text(
-                                "Read More...",
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 2, 110, 199),
-                                    fontSize: 12),
-                              ),
-                              onTap: () {},
+                            ReadMoreText(
+                              "Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet,Lorem ipsum dolor sit amet",
+                              trimLines: 3,
+                              style:
+                                  TextStyle(fontSize: 10, color: Colors.white),
+                              trimMode: TrimMode.Line,
+                              trimCollapsedText: '\nShow More',
+                              trimExpandedText: '\nShow Less',
+                              lessStyle: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                  decoration: TextDecoration.underline),
+                              moreStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  decoration: TextDecoration.underline),
                             ),
                           ],
                         ),
