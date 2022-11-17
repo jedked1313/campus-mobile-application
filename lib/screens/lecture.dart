@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:provider/provider.dart';
 
-class Lectures extends StatefulWidget {
+import '../state management/my_provider.dart';
+
+class Lectures extends StatelessWidget {
   static String title = "Lectures";
-  const Lectures({Key? key}) : super(key: key);
-
-  @override
-  State<Lectures> createState() => _LecturesState();
-}
-
-class _LecturesState extends State<Lectures> {
-  dynamic dropdownValue;
+  const Lectures({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +43,10 @@ class _LecturesState extends State<Lectures> {
                 isDense: false,
                 border: const BorderSide(color: Colors.black12, width: 1),
                 dropdownButtonColor: Colors.grey[300],
-                value: dropdownValue,
+                value: Provider.of<MyProvider>(context).dropdownValue,
                 onChanged: (newValue) {
-                  setState(() {
-                    dropdownValue = newValue;
-                  });
+                  Provider.of<MyProvider>(context, listen: false)
+                      .dropdownValueSet(newValue);
                 },
                 items: [
                   'OOP',
@@ -74,14 +69,17 @@ class _LecturesState extends State<Lectures> {
           GFButton(
             padding: const EdgeInsets.symmetric(horizontal: 60),
             onPressed: () {
-              dropdownValue == null
+              Provider.of<MyProvider>(context, listen: false).dropdownValue ==
+                      null
                   ? ScaffoldMessenger.of(context)
                       .showSnackBar(showToast("Subject"))
                   : Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              ViewLectures(title: dropdownValue)));
+                          builder: (context) => ViewLectures(
+                              title: Provider.of<MyProvider>(context,
+                                      listen: false)
+                                  .dropdownValue)));
             },
             color: const Color.fromRGBO(224, 224, 224, 1),
             borderSide: const BorderSide(color: Colors.black12, width: 1),
@@ -143,8 +141,7 @@ _createLec(i) {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                    color: color1,
-                    borderRadius: BorderRadius.circular(8)),
+                    color: color1, borderRadius: BorderRadius.circular(8)),
                 child: const Icon(
                   Icons.library_books_rounded,
                   color: Colors.white,
@@ -154,8 +151,7 @@ _createLec(i) {
               Container(
                 padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
-                    color: color1,
-                    borderRadius: BorderRadius.circular(25)),
+                    color: color1, borderRadius: BorderRadius.circular(25)),
                 child: const Icon(
                   Icons.arrow_forward_rounded,
                   color: Colors.white,

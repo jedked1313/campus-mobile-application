@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_p/screens/Time_table.dart';
 import 'package:flutter_p/standerds/standerds.dart';
+import 'package:flutter_p/state%20management/my_provider.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 import 'attendance.dart';
 import 'calender.dart';
 import 'lecture.dart';
 import 'news.dart';
 import 'results.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   static String title = "Home";
-  const HomePage({Key? key}) : super(key: key);
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
 
-class _HomePageState extends State<HomePage> {
+  const HomePage({super.key});
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -61,9 +59,7 @@ class _HomePageState extends State<HomePage> {
             },
           ).toList(),
           onPageChanged: (index) {
-            setState(() {
-              index;
-            });
+            Provider.of<MyProvider>(context, listen: false).changeSlide(index);
           },
         ),
         SizedBox(
@@ -71,7 +67,9 @@ class _HomePageState extends State<HomePage> {
         ),
         GridView.count(
             shrinkWrap: true,
-            childAspectRatio: 1.41, // Size of Cards
+            childAspectRatio: MediaQuery.of(context).size.height > 750
+                ? 1.39
+                : 1.41, // Size of Cards
             crossAxisCount: 2,
             padding: const EdgeInsets.only(left: 16, right: 16),
             mainAxisSpacing: 15,
@@ -85,16 +83,13 @@ class _HomePageState extends State<HomePage> {
                 },
                 splashColor: color1,
                 child: Ink(
-                  decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            spreadRadius: 0.5,
-                            blurRadius: 2 * 2,
-                            offset: const Offset(0, 2))
-                      ],
-                      color: color1,
-                      borderRadius: BorderRadius.circular(10)),
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withOpacity(0.3),
+                        spreadRadius: 0.5,
+                        blurRadius: 2 * 2,
+                        offset: const Offset(0, 2))
+                  ], color: color1, borderRadius: BorderRadius.circular(10)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -162,7 +157,7 @@ final Screens screens4 = Screens(
 );
 final Screens screens5 = Screens(
   title: "Attendance",
-  icon: "assets/icon/homework1.svg",
+  icon: "assets/icon/attendance.svg",
   onPressed: const Attendance(),
 );
 final Screens screens6 = Screens(

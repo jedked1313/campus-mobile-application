@@ -29,6 +29,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  http: ^0.13.5
   flutter_svg: ^0.22.0 # add SVG
   getwidget: ^ 2.0.4 # get widget library
   google_nav_bar: ^5.0.6 # BottomNavigationBar
@@ -71,6 +72,7 @@ flutter:
     - assets/image/slider_3.jpg
     - assets/image/lectures.jpg
     - assets/image/results.jpg
+    - assets/image/attendance.jpg
     - assets/image/splash1.png
     - assets/image/splash2.png
     - assets/image/splash3.png
@@ -83,6 +85,7 @@ flutter:
     - assets/icon/calendar2.svg
     - assets/icon/user1.svg
     - assets/icon/lec.svg
+    - assets/icon/attendance.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

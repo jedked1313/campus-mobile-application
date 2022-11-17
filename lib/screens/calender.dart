@@ -31,7 +31,8 @@ class Calender extends StatelessWidget {
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
                     color: color1.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(10)),
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(width: 1, color: color1)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

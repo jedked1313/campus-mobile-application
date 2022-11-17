@@ -7,9 +7,20 @@ import '../screens/notifications.dart';
 class MyProvider with ChangeNotifier {
   int selectedScreen = 0;
   String pageTitle = "Home";
+  dynamic dropdownValue;
+
   changeScreen(int index) {
     selectedScreen = index; // change the screen
     pageTitle = names[index]; // change the title of screen
+    notifyListeners();
+  }
+
+  int changeSlide(int index) {
+    return index;
+  }
+
+  dropdownValueSet(dynamic value) {
+    dropdownValue = value;
     notifyListeners();
   }
 
