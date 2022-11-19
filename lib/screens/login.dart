@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_p/main.dart';
+import 'package:flutter_p/screens/teacher_screens/teacher_home.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 
 class Login extends StatelessWidget {
@@ -122,8 +123,14 @@ class Login extends StatelessWidget {
                       height: 25,
                     ),
                     InkWell(
+                      onLongPress: () {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const TeacherHome()));
+                      },
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const Home()));

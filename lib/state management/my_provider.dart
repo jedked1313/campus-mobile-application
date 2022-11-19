@@ -1,13 +1,14 @@
 import "package:flutter/material.dart";
-import 'package:flutter_p/screens/setting.dart';
-import '../screens/home.dart';
-import '../screens/news.dart';
-import '../screens/notifications.dart';
+import 'package:flutter_p/screens/student_screens/setting.dart';
+import '../screens/student_screens/home.dart';
+import '../screens/student_screens/news.dart';
+import '../screens/student_screens/notifications.dart';
 
 class MyProvider with ChangeNotifier {
   int selectedScreen = 0;
   String pageTitle = "Home";
   dynamic dropdownValue;
+  dynamic dropdownValue2;
 
   changeScreen(int index) {
     selectedScreen = index; // change the screen
@@ -21,6 +22,12 @@ class MyProvider with ChangeNotifier {
 
   dropdownValueSet(dynamic value) {
     dropdownValue = value;
+    dropdownValue2 = null;
+    notifyListeners();
+  }
+
+  dropdownValueSet2(dynamic value) {
+    dropdownValue2 = value;
     notifyListeners();
   }
 

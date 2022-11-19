@@ -76,16 +76,18 @@ flutter:
     - assets/image/splash1.png
     - assets/image/splash2.png
     - assets/image/splash3.png
+    - assets/image/sendmessage.jpg
     # Icons
     - assets/icon/lecture.svg
     - assets/icon/calendar1.svg
-    - assets/icon/homework1.svg
+    - assets/icon/message2.svg
     - assets/icon/id3.svg
     - assets/icon/result2.svg
     - assets/icon/calendar2.svg
     - assets/icon/user1.svg
     - assets/icon/lec.svg
     - assets/icon/attendance.svg
+    - assets/icon/upload.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

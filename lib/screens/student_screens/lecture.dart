@@ -3,7 +3,7 @@ import 'package:flutter_p/standerds/standerds.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:provider/provider.dart';
 
-import '../state management/my_provider.dart';
+import '../../state management/my_provider.dart';
 
 class Lectures extends StatelessWidget {
   static String title = "Lectures";

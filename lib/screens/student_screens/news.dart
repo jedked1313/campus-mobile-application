@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
-import '../standerds/standerds.dart';
+import '../../standerds/standerds.dart';
 
 // ignore: must_be_immutable
 class News extends StatelessWidget {

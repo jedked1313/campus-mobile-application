@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../standerds/standerds.dart';
+import '../../standerds/standerds.dart';
 
 class TimeTable extends StatelessWidget {
   const TimeTable({super.key});

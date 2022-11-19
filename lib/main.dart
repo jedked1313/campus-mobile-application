@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_p/screens/login.dart';
+import 'package:flutter_p/screens/teacher_screens/teacher_home.dart';
 import 'package:flutter_p/state management/my_provider.dart';
 // import 'package:flutter_p/screens/splash.dart';
 import 'package:flutter_p/standerds/standerds.dart';
-import 'package:flutter_p/widgets/sidebar.dart';
+import 'screens/sidebar.dart';
 import 'package:provider/provider.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -28,7 +30,7 @@ class MyApp extends StatelessWidget {
             ),
             splashFactory: NoSplash.splashFactory, // disable splash color
             canvasColor: Colors.white),
-        home: const Home());
+        home: const TeacherHome());
   }
 }
 

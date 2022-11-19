@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/screens/Time_table.dart';
+import 'package:flutter_p/screens/student_screens/time_table.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_p/state%20management/my_provider.dart';
 import 'package:getwidget/getwidget.dart';
