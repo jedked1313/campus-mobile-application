@@ -136,15 +136,21 @@ final List<Screens> myList = [
   // List of Screens
   screens1,
   screens2,
+  screens3,
 ];
 final Screens screens1 = Screens(
   title: "Send Message",
-  icon: "assets/icon/message2.svg",
+  icon: "assets/icon/sendmessage.svg",
   onPressed: const SendMessages(),
 );
 final Screens screens2 = Screens(
   title: "Upload Lecture",
   icon: "assets/icon/upload.svg",
+  onPressed: const UploadLectures(),
+);
+final Screens screens3 = Screens(
+  title: "My Messages",
+  icon: "assets/icon/message2.svg",
   onPressed: const UploadLectures(),
 );
 

@@ -24,8 +24,9 @@ class MyApp extends StatelessWidget {
             // brightness: Brightness.dark, // Enable Dark Mode
             fontFamily: "Poppins", // App Font
             primarySwatch: customWhite,
-            appBarTheme: const AppBarTheme(
+            appBarTheme: AppBarTheme(
               shadowColor: Colors.transparent,
+              titleTextStyle: titleStyle,
               centerTitle: true,
             ),
             splashFactory: NoSplash.splashFactory, // disable splash color
@@ -59,7 +60,7 @@ class Home extends StatelessWidget {
             BoxShadow(
                 color: Colors.black.withOpacity(0.3),
                 spreadRadius: 0.5,
-                blurRadius: 2 * 2,
+                blurRadius: 4,
                 offset: const Offset(0, 2))
           ],
           borderRadius: BorderRadius.circular(15),

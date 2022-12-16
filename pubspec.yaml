@@ -36,6 +36,8 @@ dependencies:
   intro_slider: ^4.2.0 # Splash Screen
   provider: # State Management
   readmore: ^2.1.0 # show more and show less on text
+  file_picker: ^5.2.2 # upload files
+  flutter_cached_pdfview: ^0.4.1
   flutter:
     sdk: flutter
 
@@ -77,6 +79,7 @@ flutter:
     - assets/image/splash2.png
     - assets/image/splash3.png
     - assets/image/sendmessage.jpg
+    - assets/image/upload_lecture.jpg
     # Icons
     - assets/icon/lecture.svg
     - assets/icon/calendar1.svg
@@ -85,9 +88,9 @@ flutter:
     - assets/icon/result2.svg
     - assets/icon/calendar2.svg
     - assets/icon/user1.svg
-    - assets/icon/lec.svg
     - assets/icon/attendance.svg
     - assets/icon/upload.svg
+    - assets/icon/sendmessage.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

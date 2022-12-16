@@ -43,7 +43,12 @@ class SendMessages extends StatelessWidget {
                                 value: data,
                                 child: Text(
                                   data,
-                                  style: const TextStyle(fontSize: 13),
+                                  style: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.height >
+                                                  740
+                                              ? 12
+                                              : 8),
                                 ),
                               ))
                           .toList(),
@@ -74,7 +79,12 @@ class SendMessages extends StatelessWidget {
                                 value: value,
                                 child: Text(
                                   value,
-                                  style: const TextStyle(fontSize: 13),
+                                  style: TextStyle(
+                                      fontSize:
+                                          MediaQuery.of(context).size.height >
+                                                  740
+                                              ? 12
+                                              : 8),
                                 ),
                               ))
                           .toList(),
@@ -108,6 +118,7 @@ class SendMessages extends StatelessWidget {
                 Expanded(
                   flex: 1,
                   child: GFButton(
+                    color: color1,
                     type: GFButtonType.outline,
                     text: "Cancel",
                     textStyle: TextStyle(

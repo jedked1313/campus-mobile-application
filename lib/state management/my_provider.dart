@@ -9,6 +9,7 @@ class MyProvider with ChangeNotifier {
   String pageTitle = "Home";
   dynamic dropdownValue;
   dynamic dropdownValue2;
+  dynamic dropdownValue3;
 
   changeScreen(int index) {
     selectedScreen = index; // change the screen
@@ -28,6 +29,11 @@ class MyProvider with ChangeNotifier {
 
   dropdownValueSet2(dynamic value) {
     dropdownValue2 = value;
+    notifyListeners();
+  }
+
+  dropdownValueSet3(dynamic value) { // for Upload lecture screen "Dumb way but at least work"
+    dropdownValue3 = value;
     notifyListeners();
   }
 
