@@ -16,13 +16,13 @@ class Notifications extends StatelessWidget {
           children: [
             _createContent(
                 "assets/icon/user1.svg",
-                "Khider Abdo",
+                "Teacher 1",
                 "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}",
                 "First Notice",
                 'Flutter is Google mobile UI open source framework to build high-quality native (super fast) interfaces for iOS and Android apps with the unified codebase.'),
-            _createContent("assets/icon/user1.svg", "test", "2022-10-10",
+            _createContent("assets/icon/user1.svg", "Teacher 2", "2022-10-10",
                 "title", "Hello World"),
-            _createContent("assets/icon/user1.svg", "test2", "2022-10-10",
+            _createContent("assets/icon/user1.svg", "Teacher 3", "2022-10-10",
                 "title2", "Hello World2")
           ],
         ),

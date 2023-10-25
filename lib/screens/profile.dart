@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_p/main.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -11,13 +12,16 @@ class Profile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: color1,
-        title: Text(title),
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.white),
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-              height: MediaQuery.of(context).size.height * 0.25,
+              height: MediaQuery.of(context).size.height * 0.23,
               width: double.infinity,
               decoration: BoxDecoration(
                   color: color1,
@@ -43,7 +47,13 @@ class Profile extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text(UserInfo.username),
+                  Text(
+                    sharedPref.getString("username").toString(),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20),
+                  ),
                 ],
               )),
           const Padding(
@@ -75,7 +85,6 @@ class Profile extends StatelessWidget {
 }
 
 class UserInfo {
-  static String username = "Username";
   static String specialization = "Information Technology";
   static String year = "Fourth";
   static String email = "Test@gmail.com";

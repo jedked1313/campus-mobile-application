@@ -115,7 +115,7 @@ class ViewLectures extends StatelessWidget {
           itemBuilder: ((context, index) {
             return _createLec(index + 1);
           }),
-          itemCount: 12,
+          itemCount: 6,
         ),
       ),
     );

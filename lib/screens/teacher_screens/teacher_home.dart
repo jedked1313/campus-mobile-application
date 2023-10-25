@@ -36,8 +36,9 @@ class TeacherHome extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => News(
-                                  appBar: AppBar(),
+                            builder: (context) => Scaffold(
+                                  appBar: AppBar(title: const Text("News")),
+                                  body: const News(),
                                 )));
                   },
                   child: Container(
@@ -137,6 +138,7 @@ final List<Screens> myList = [
   screens1,
   screens2,
   screens3,
+  screens4,
 ];
 final Screens screens1 = Screens(
   title: "Send Message",
@@ -152,6 +154,15 @@ final Screens screens3 = Screens(
   title: "My Messages",
   icon: "assets/icon/message2.svg",
   onPressed: const UploadLectures(),
+);
+final Screens screens4 = Screens(
+  title: "News",
+  icon: "assets/icon/news.svg",
+  onPressed: Scaffold(
+      appBar: AppBar(
+        title: const Text("News"),
+      ),
+      body: const News()),
 );
 
 class Screens {

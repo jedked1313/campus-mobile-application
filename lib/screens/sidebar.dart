@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_p/main.dart';
 import 'package:flutter_p/screens/login.dart';
 import 'package:flutter_p/screens/profile.dart';
+import 'package:flutter_p/screens/student_screens/setting.dart';
 import 'package:flutter_p/standerds/standerds.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:getwidget/getwidget.dart';
@@ -29,23 +31,70 @@ class Sidebar extends StatelessWidget {
                 ),
               ),
               child: Column(
-                children: const <Widget>[
-                  SizedBox(
+                children: <Widget>[
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
-                    'user@userid.com',
-                    style: TextStyle(color: Colors.white),
+                    sharedPref.getString("username").toString(),
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ],
               ),
             ),
             setData("Profile", Icons.account_circle, context, const Profile()),
-            setData("Settings", Icons.settings, context, const Login()),
-            setData("Login", Icons.login, context, const Login()),
             setData("Help and Support", Icons.headphones_rounded, context,
-                const Login()),
-            setData("About", Icons.help_rounded, context, const Login()),
+                const Profile()),
+            setData(
+                "Setting",
+                Icons.settings_rounded,
+                context,
+                Scaffold(
+                  appBar: AppBar(title: const Text("Setting")),
+                  body: const Setting(),
+                )),
+            setData("About", Icons.help_rounded, context, const Profile()),
+            const Divider(
+              thickness: 2,
+            ),
+            Column(
+              children: [
+                Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                    color: color1,
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: ListTile(
+                    title: const Text(
+                      "logout",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                    onTap: () {
+                      showAlertDialog2(
+                          context,
+                          sharedPref.getString('username').toString(),
+                          "Are you sure ou want to log out ?", () {
+                        sharedPref.clear();
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login()),
+                            (Route<dynamic> route) => false);
+                      });
+                    },
+                    leading: const Icon(
+                      Icons.logout_rounded,
+                      color: Colors.white,
+                    ),
+                    trailing: const Icon(
+                      Icons.arrow_forward_ios_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),

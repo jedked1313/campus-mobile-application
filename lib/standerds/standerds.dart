@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getwidget/components/button/gf_button.dart';
 
 // ********************** Colors ********************** //
 MaterialColor customWhite = const MaterialColor(0xFFFFFFFF, {
@@ -30,6 +31,103 @@ SnackBar showToast(title) {
   );
 }
 
+showAlertDialog(BuildContext context, String title, String subtitle) {
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      title,
+      style: const TextStyle(fontSize: 18),
+    ),
+    content: Text(
+      subtitle,
+    ),
+    actions: [
+      GFButton(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text("Ok"),
+      ),
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialog2(BuildContext context, String title, String subtitle,
+    Function() confirmFun) {
+  AlertDialog alert = AlertDialog(
+    title: Text(
+      title,
+      style: const TextStyle(fontSize: 18),
+    ),
+    content: Text(
+      subtitle,
+    ),
+    actions: [
+      GFButton(
+        color: color1,
+        onPressed: () {
+          Navigator.pop(context);
+        },
+        child: const Text("NO"),
+      ),
+      GFButton(
+        color: Colors.redAccent,
+        onPressed: () {
+          confirmFun();
+        },
+        child: const Text("Yes"),
+      ),
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
 // ********************** Styles ********************** //
 TextStyle titleStyle =
     TextStyle(fontWeight: FontWeight.bold, color: color4, fontSize: 16);
+
+// ********************** Links ********************** //
+
+const String linkServer = "http://172.20.10.6:8080/system";
+const String linkLogin = "$linkServer/api/auth/login.php";
+const String linknews = "$linkServer/api/news.php";
+const String linkevents = "$linkServer/api/events.php";
+
+// ********************** Input messages ********************** //
+
+const String messageInputEmpty = "This field cannot be empty";
+const String messageInputmin = "This field cannot be less than";
+const String messageInputmax = "This field cannot be more than";
+const String messageInputReg = "only Letters, numbers, and underscores.";
+final alphanumeric = RegExp(r'^[a-zA-Z0-9_]+$');
+
+// ********************** Functions ********************** //
+
+validInput(String val, int min, int max) {
+  if (val.isEmpty) {
+    return messageInputEmpty;
+  }
+  if (val.length > max) {
+    return "$messageInputmax $max";
+  }
+  if (val.length < min) {
+    return "$messageInputmin $min";
+  }
+  if (!alphanumeric.hasMatch(val)) {
+    return messageInputReg;
+  }
+}

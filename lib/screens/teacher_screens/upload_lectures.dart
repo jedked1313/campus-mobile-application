@@ -31,37 +31,34 @@ class _UploadLecturesState extends State<UploadLectures> {
                 "assets/image/upload_lecture.jpg",
                 height: MediaQuery.of(context).size.height * 0.4,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: DropdownButtonHideUnderline(
-                  child: GFDropdown(
-                    hint: const Text("Subject"),
-                    isExpanded: true,
-                    icon: const Icon(Icons.expand_circle_down_outlined),
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    borderRadius: BorderRadius.circular(10),
-                    isDense: false,
-                    border: const BorderSide(color: Colors.black12, width: 1),
-                    dropdownButtonColor: Colors.grey[300],
-                    value: Provider.of<MyProvider>(context).dropdownValue3,
-                    onChanged: (newValue) {
-                      Provider.of<MyProvider>(context, listen: false)
-                          .dropdownValueSet3(newValue);
-                    },
-                    items: subjects
-                        .map((data) => DropdownMenuItem(
-                              value: data,
-                              child: Text(
-                                data,
-                                style: TextStyle(
-                                    fontSize:
-                                        MediaQuery.of(context).size.height > 740
-                                            ? 12
-                                            : 8),
-                              ),
-                            ))
-                        .toList(),
-                  ),
+              DropdownButtonHideUnderline(
+                child: GFDropdown(
+                  hint: const Text("Subject"),
+                  isExpanded: true,
+                  icon: const Icon(Icons.expand_circle_down_outlined),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  borderRadius: BorderRadius.circular(10),
+                  isDense: false,
+                  border: const BorderSide(color: Colors.black12, width: 1),
+                  dropdownButtonColor: Colors.grey[300],
+                  value: Provider.of<MyProvider>(context).dropdownValue3,
+                  onChanged: (newValue) {
+                    Provider.of<MyProvider>(context, listen: false)
+                        .dropdownValueSet3(newValue);
+                  },
+                  items: subjects
+                      .map((data) => DropdownMenuItem(
+                            value: data,
+                            child: Text(
+                              data,
+                              style: TextStyle(
+                                  fontSize:
+                                      MediaQuery.of(context).size.height > 740
+                                          ? 12
+                                          : 8),
+                            ),
+                          ))
+                      .toList(),
                 ),
               ),
               const SizedBox(

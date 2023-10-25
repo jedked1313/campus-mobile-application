@@ -1,15 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter_p/screens/login.dart';
+import 'package:flutter_p/screens/login.dart';
 import 'package:flutter_p/screens/teacher_screens/teacher_home.dart';
 import 'package:flutter_p/state management/my_provider.dart';
-// import 'package:flutter_p/screens/splash.dart';
+import 'package:flutter_p/screens/splash.dart';
 import 'package:flutter_p/standerds/standerds.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/sidebar.dart';
 import 'package:provider/provider.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-void main() {
+late SharedPreferences sharedPref;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  sharedPref = await SharedPreferences.getInstance();
   runApp(ChangeNotifierProvider<MyProvider>(
       create: (context) => MyProvider(), child: const MyApp()));
 }
@@ -31,7 +35,11 @@ class MyApp extends StatelessWidget {
             ),
             splashFactory: NoSplash.splashFactory, // disable splash color
             canvasColor: Colors.white),
-        home: const TeacherHome());
+        home: sharedPref.getString("id") == null
+            ? const Spalsh()
+            : (sharedPref.getString("isTeacher") == "1"
+                ? const TeacherHome()
+                : const Home()));
   }
 }
 

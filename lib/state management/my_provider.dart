@@ -32,7 +32,8 @@ class MyProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  dropdownValueSet3(dynamic value) { // for Upload lecture screen "Dumb way but at least work"
+  dropdownValueSet3(dynamic value) {
+    // for Upload lecture screen "Dumb way but at least work"
     dropdownValue3 = value;
     notifyListeners();
   }
@@ -41,7 +42,7 @@ class MyProvider with ChangeNotifier {
   List<Widget> screensPages = [
     const HomePage(),
     const Notifications(),
-    News(),
+    const News(),
     const Setting(),
   ];
 }
