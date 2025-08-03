@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import 'package:flutter_p/screens/student_screens/setting.dart';
+import 'package:campus_mobile_application/screens/student_screens/setting.dart';
 import '../screens/student_screens/home.dart';
 import '../screens/student_screens/news.dart';
 import '../screens/student_screens/notifications.dart';

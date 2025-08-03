@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/screens/student_screens/time_table.dart';
-import 'package:flutter_p/standerds/standerds.dart';
-import 'package:flutter_p/state%20management/my_provider.dart';
+import 'package:campus_mobile_application/screens/student_screens/time_table.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
+import 'package:campus_mobile_application/state%20management/my_provider.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                   decoration: BoxDecoration(
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.black.withValues(alpha: 0.3),
                           spreadRadius: 1,
                           blurRadius: 2 * 2,
                           offset: const Offset(0, 2))
@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
                 child: Ink(
                   decoration: BoxDecoration(boxShadow: [
                     BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
+                        color: Colors.black.withValues(alpha: 0.3),
                         spreadRadius: 0.5,
                         blurRadius: 2 * 2,
                         offset: const Offset(0, 2))

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/screens/login.dart';
+import 'package:campus_mobile_application/screens/login.dart';
 import 'package:intro_slider/intro_slider.dart';
 
 class Spalsh extends StatelessWidget {

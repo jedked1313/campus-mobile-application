@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/main.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/main.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Profile extends StatelessWidget {

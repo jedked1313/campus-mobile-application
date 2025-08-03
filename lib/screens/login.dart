@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/api/requests.dart';
-import 'package:flutter_p/main.dart';
-import 'package:flutter_p/screens/teacher_screens/teacher_home.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/api/requests.dart';
+import 'package:campus_mobile_application/main.dart';
+import 'package:campus_mobile_application/screens/teacher_screens/teacher_home.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -24,9 +24,9 @@ class _LoginState extends State<Login> {
         flexibleSpace: Container(
           decoration: BoxDecoration(
               gradient: LinearGradient(begin: Alignment.centerLeft, colors: [
-            color1.withOpacity(0.6),
-            color1.withOpacity(0.7),
-            color1.withOpacity(0.9),
+            color1.withValues(alpha: 0.6),
+            color1.withValues(alpha: 0.7),
+            color1.withValues(alpha: 0.9),
           ])),
         ),
       ),
@@ -34,19 +34,20 @@ class _LoginState extends State<Login> {
         width: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(begin: Alignment.centerLeft, colors: [
-            color1.withOpacity(0.6),
-            color1.withOpacity(0.7),
-            color1.withOpacity(0.9),
+            color1.withValues(alpha: 0.6),
+            color1.withValues(alpha: 0.7),
+            color1.withValues(alpha: 0.9),
           ]),
         ),
         child: ListView(
+          physics: NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           children: [
             const SizedBox(
               height: 15,
             ),
-            Column(
-              children: const [
+            const Column(
+              children: [
                 Text(
                   "Login",
                   style: TextStyle(
@@ -64,11 +65,11 @@ class _LoginState extends State<Login> {
                       fontSize: 14,
                       fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 10)
+                SizedBox(height: 50)
               ],
             ),
             Container(
-              height: MediaQuery.of(context).size.height / 1.5,
+              height: MediaQuery.of(context).size.height,
               decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -133,9 +134,9 @@ class _LoginState extends State<Login> {
                     const SizedBox(
                       height: 25,
                     ),
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.end,
-                      children: const [
+                      children: [
                         Text(
                           "Forgot Password?",
                           style: TextStyle(
@@ -158,7 +159,7 @@ class _LoginState extends State<Login> {
                           gradient: LinearGradient(
                               begin: Alignment.centerLeft,
                               colors: [
-                                color1.withOpacity(0.8),
+                                color1.withValues(alpha: 0.8),
                                 color1,
                               ]),
                           color: color1,

@@ -17,7 +17,7 @@ class TimeTable extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           DataTable(
-            dataRowHeight: 70,
+            dataRowMinHeight: 70,
             showBottomBorder: true,
             rows: const [
               DataRow(cells: [

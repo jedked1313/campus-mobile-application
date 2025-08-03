@@ -102,7 +102,7 @@ TextStyle titleStyle =
 
 // ********************** Links ********************** //
 
-const String linkServer = "http://172.20.10.6:8080/system";
+const String linkServer = "http://192.168.1.18/system"; // Real Device Api
 const String linkLogin = "$linkServer/api/auth/login.php";
 const String linknews = "$linkServer/api/news.php";
 const String linkevents = "$linkServer/api/events.php";

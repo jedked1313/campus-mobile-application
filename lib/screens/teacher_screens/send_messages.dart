@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:provider/provider.dart';
 

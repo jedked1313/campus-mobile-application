@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 import 'package:getwidget/getwidget.dart';
 
 class Results extends StatefulWidget {
   final String? selectedYear;
   static String title = "Results";
 
-  const Results({Key? key, this.selectedYear}) : super(key: key);
+  const Results({super.key, this.selectedYear});
 
   @override
   State<Results> createState() => _ResultsState();
@@ -109,12 +109,12 @@ class ResultsDetails extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: DataTable(
               decoration: BoxDecoration(
-                  color: color1.withOpacity(0.5),
+                  color: color1.withValues(alpha: 0.5),
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: color1)),
               // headingRowColor: MaterialStateProperty.all(Colors.green),
               columnSpacing: 0,
-              dataRowHeight: 70,
+              dataRowMinHeight: 70,
               dataTextStyle: const TextStyle(
                 fontSize: 10,
                 color: Colors.black,

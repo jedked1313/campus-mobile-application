@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 import 'package:http/http.dart' as http;
 
 class Calender extends StatelessWidget {
@@ -51,7 +51,7 @@ _createEvents(String date, String title) {
     margin: const EdgeInsets.all(10),
     padding: const EdgeInsets.all(10),
     decoration: BoxDecoration(
-        color: color1.withOpacity(0.5),
+        color: color1.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(width: 1, color: color1)),
     child: Column(

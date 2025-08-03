@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:flutter_p/standerds/standerds.dart';
-import 'package:flutter_p/state%20management/my_provider.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
+import 'package:campus_mobile_application/state%20management/my_provider.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:provider/provider.dart';
 // import 'package:flutter_cached_pdfview/flutter_cached_pdfview.dart';

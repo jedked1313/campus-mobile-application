@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_p/screens/login.dart';
-import 'package:flutter_p/screens/teacher_screens/teacher_home.dart';
-import 'package:flutter_p/state management/my_provider.dart';
-import 'package:flutter_p/screens/splash.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/screens/teacher_screens/teacher_home.dart';
+import 'package:campus_mobile_application/state management/my_provider.dart';
+import 'package:campus_mobile_application/screens/splash.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'screens/sidebar.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +18,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -66,7 +65,7 @@ class Home extends StatelessWidget {
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-                color: Colors.black.withOpacity(0.3),
+                color: Colors.black.withValues(alpha: 0.3),
                 spreadRadius: 0.5,
                 blurRadius: 4,
                 offset: const Offset(0, 2))

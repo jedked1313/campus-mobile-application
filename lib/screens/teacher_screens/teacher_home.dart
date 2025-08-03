@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/screens/sidebar.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/screens/sidebar.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +45,7 @@ class TeacherHome extends StatelessWidget {
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
+                            color: Colors.black.withValues(alpha: 0.3),
                             spreadRadius: 0.5,
                             blurRadius: 4,
                             offset: const Offset(-3, 2))
@@ -86,7 +86,7 @@ class TeacherHome extends StatelessWidget {
                   child: Ink(
                     decoration: BoxDecoration(boxShadow: [
                       BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.black.withValues(alpha: 0.3),
                           spreadRadius: 0.5,
                           blurRadius: 2 * 2,
                           offset: const Offset(0, 2))

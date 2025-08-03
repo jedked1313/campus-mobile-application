@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_p/main.dart';
-import 'package:flutter_p/screens/login.dart';
-import 'package:flutter_p/screens/profile.dart';
-import 'package:flutter_p/screens/student_screens/setting.dart';
-import 'package:flutter_p/standerds/standerds.dart';
+import 'package:campus_mobile_application/main.dart';
+import 'package:campus_mobile_application/screens/login.dart';
+import 'package:campus_mobile_application/screens/profile.dart';
+import 'package:campus_mobile_application/screens/student_screens/setting.dart';
+import 'package:campus_mobile_application/standerds/standerds.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:getwidget/getwidget.dart';
 
 class Sidebar extends StatelessWidget {
-  const Sidebar({Key? key}) : super(key: key);
+  const Sidebar({super.key});
   @override
   Widget build(BuildContext context) {
     return Drawer(

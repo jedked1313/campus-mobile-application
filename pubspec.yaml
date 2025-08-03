@@ -1,6 +1,5 @@
-name: flutter_p
-description: A new Flutter project.
-
+name: campus_mobile_application
+description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
@@ -20,7 +19,7 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.18.1 <3.0.0"
+  sdk: ^3.6.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -29,22 +28,22 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-  http: ^0.13.5
-  flutter_svg: ^0.22.0 # add SVG
-  getwidget: ^ 2.0.4 # get widget library
-  google_nav_bar: ^5.0.6 # BottomNavigationBar
-  intro_slider: ^4.2.0 # Splash Screen
+  http:
+  flutter_svg: # add SVG
+  getwidget: # get widget library
+  google_nav_bar: # BottomNavigationBar
+  intro_slider: # Splash Screen
   provider: # State Management
-  readmore: ^2.1.0 # show more and show less on text
-  file_picker: ^5.2.2 # upload files
-  flutter_cached_pdfview: ^0.4.1
+  readmore: # show more and show less on text
+  file_picker: # upload files
+  flutter_cached_pdfview:
   flutter:
     sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
-  shared_preferences: ^2.0.15
+  cupertino_icons:
+  shared_preferences:
 
 dev_dependencies:
   flutter_test:
@@ -55,7 +54,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -95,10 +94,10 @@ flutter:
     - assets/icon/news.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware
+  # https://flutter.dev/to/resolution-aware-images
 
   # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
+  # https://flutter.dev/to/asset-from-package
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
@@ -136,4 +135,4 @@ flutter:
           weight: 900
   #
   # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages
+  # see https://flutter.dev/to/font-from-package
